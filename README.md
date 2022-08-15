@@ -80,7 +80,7 @@ As instructed by Google, the datasets have been made available by Motivate Inter
 I am using the "ROCCC" framework
 * Reliable - taking into account the data has been provided by Google for this case study I'll assume that the data is reliable. Also the data looks to come from a real bike-share operator. (Cyclist is a fictional company so data has been sourced from 'divvy' operator)
 * Original - first-party data, no issues
-* Comprehensive - I have found historical trip data for a considerable length of time and the files contain all critical information needed to answer my questions and find a solution to my business task
+* Comprehensive - I have found historical trip data for a considerable length of time and the files contain all critical information needed to answer my questions and find a solution to my business task. However it would be useful to also have the prices of each ride for more complex analysis.
 * Current - I have access to the last 12 months of trip data
 * Cited - n/a
 
@@ -99,6 +99,7 @@ We can analyze the bike utilization behaviour differences between the two kind o
 
 From the above analysis points we can then derive further insights on why would casual riders buy Cyclistic annual memberships.
 
+## Process
 
 
 
