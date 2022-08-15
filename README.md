@@ -49,6 +49,7 @@ The key stakeholders are:
  The data is located on the company's Amazon cloud server. It is safe to proceed to downloading the data as I have verified the domain (no phishing + SSL certified).
  In the provided location we have the following available data:
  * monthly historical trip data for period 01.2016 - 07.2022
+
 Note: The reporting format has changed over the years. If longer-term analysis will be required I need to pay extra attention to the data formatting.
 
 Downloaded the data and uploaded trip data to a secure cloud server to ensure data accessibility, security and ensure data will not get lost.
@@ -97,6 +98,8 @@ We can analyze the bike utilization behaviour differences between the two kind o
 * the type of bike used
 
 From the above analysis points we can then derive further insights on why would casual riders buy Cyclistic annual memberships.
+
+
 
 
 
