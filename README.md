@@ -85,8 +85,11 @@ I am using the "ROCCC" framework
 
 **Data integrity** considerations:
 Accuracy - we can't really check for data accuracy as Cyclist is a fictional company
+
 Completeness - we have inspected the trip data files from the last 12 months and they all contain detailed information about each trip and for each type of member
+
 Consistency - data is stored on a cloud server location so it can be accessed by anyone who has access to the link
+
 Trustworthiness through the data life-cycle - n/a - I do not have information regarding the data life-cycle of trip data
 
 We can analyze the bike utilization behaviour differences between the two kind of members by looking at:
