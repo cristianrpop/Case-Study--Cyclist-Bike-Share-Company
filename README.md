@@ -137,10 +137,10 @@ HAVING COUNT(*) > 1
 Errors
 - There are observations with null values in the start_station_name, start_station_id, end_station_name and end_station_id columns
 
-3) Data transformation
+4) Data transformation
 * Created two computed columns
   - ride_length - showing the length in minutes for each ride ```DATEDIFF(minute, started_at, ended_at)```
-  - day_of_week - extracted the week day in number format (Sunday = 1, Saturday = 7) ```DATEPART(dw, started_at)```
+  - day_of_week - extracted the week day in number format (Sunday = 1, Saturday = 7) ```DATEPART(weekday, started_at)```
 
 
  
