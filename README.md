@@ -104,7 +104,7 @@ From the above analysis points we can then derive further insights on why would 
 ### Tools selection:
 
 - **SQL Server** - exploring, cleaning and transforming data (the csv files are quite large and time-consuming to work with in a spreadsheet)
-
+- **Excel** - will be used mostly in the analysis phase for ad-hoc calculations on smaller datasets exported from database queries
 
 ### 1) Imported the .csv files into a SQL database using SQL Server (SSMS).
 ### 2) Merged all monthly tables into one using UNION ALL SQL function.
@@ -145,10 +145,67 @@ Errors
 
 I have ensured that my data is clean and ready for analysis by performing the cleaning procedures mentioned in the previous section.
 - My data has no duplicate ride_id trips
-- Each row has a *ride_id and a *member_casual* attribute
+- Each row has a *ride_id* and a *member_casual* attribute
 - Column names are descriptive
 
 ## Analyze
+
+I will derive insights about each type of member behaviour. In this regard I have decided to perform the following procedures.
+It is always good to keep the big picture in mind: our goal is to find behavioural differences between casual riders and Cyclist members.
+
+1) I'll start with something simple. Let's look at the **total number of trips taken by each user category**:
+```
+SELECT 
+	member_casual,
+	COUNT(*) AS num_trips
+FROM [trip_data]
+GROUP BY member_casual
+```
+![image](https://user-images.githubusercontent.com/24313609/184867828-f65f54fd-b28c-4e1f-aedc-c100d6b8a104.png)
+
+I have exported the results into an excel file for some rapid math and the conclusion is that members have taken 795,309 more trips than casual users (26.83% more). However we do not have any data regarding the number of users so we can't form a complete picture.
+
+2) Tried to see if there are any patterns in the preference for certain bike types between the two categories.
+
+SQL query:
+```
+SELECT 
+	member_casual,
+	rideable_type,
+	COUNT(*) AS num_trips
+FROM [trip_data]
+GROUP BY member_casual, rideable_type
+ORDER BY member_casual ASC, num_trips DESC
+```
+
+![image](https://user-images.githubusercontent.com/24313609/184937553-dfabda82-ba0a-447d-aa21-7f09ceee6cb1.png)
+![image](https://user-images.githubusercontent.com/24313609/184937562-e59184b0-6d12-466f-b022-917482d68b5a.png)
+
+***Finding: It looks like members have a slight preference for classic bikes over electric_bikes over the last 12 months (58% vs 42%). Assuming that a good part of members are commuting to work, they might not be aware of the benefits of using an electric bike (which are generally faster and less tiresome for the cyclist). However we do not know the number of electric and classic bikes in the network. Also it might be the case that electric bikes are more expensive to rent. In this case I would recommend emphasizing the benefits of using electric bikes against the cost in a marketing campaign.***
+I'm curious about the electric bike utilization monthly trend. Let's check it:
+
+```
+SELECT 
+	member_casual,
+	rideable_type,
+	DATEPART(mm,started_at) AS ride_month,
+	COUNT(*) AS num_trips
+FROM [trip_data]
+GROUP BY member_casual, rideable_type, DATEPART(mm,started_at)
+ORDER BY member_casual ASC, ride_month ASC, num_trips DESC
+```
+![image](https://user-images.githubusercontent.com/24313609/184949642-5457e239-a0aa-4c99-b6aa-44b8a82afcfa.png)
+
+- Clear seasonality -> bikes utilization shows a rapid utilization starting in the spring season and peaking in July. Both classic and electric bike utilization start to drop significantly in August and really bottoms out during the winter season. 
+- It is no surprise that people opt out for more comfortable transport means (bus, personal car, ...) when the weather is cold
+- ***Finding: Converting casual users to members would result in more income for the firm while the wear of the bikes stays relatively the same (no significant difference in seasonality identified between the two categories). This is in line with the financial department analysis.***
+- Data shows that 'docked bikes' are only used by casual users. However, I am not sure what that means - do they represent classic or electric bikes? In a real world situation I would check that with my colleagues and/or my manager.
+
+
+
+
+
+
 
 
 
