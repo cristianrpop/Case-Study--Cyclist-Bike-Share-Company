@@ -194,7 +194,7 @@ FROM [trip_data]
 GROUP BY member_casual, rideable_type, DATEPART(mm,started_at)
 ORDER BY member_casual ASC, ride_month ASC, num_trips DESC
 ```
-![image](https://user-images.githubusercontent.com/24313609/184949642-5457e239-a0aa-4c99-b6aa-44b8a82afcfa.png)
+![image](https://user-images.githubusercontent.com/24313609/184950050-cb252da4-2816-40d7-bfb1-67bdb08ecca2.png)
 
 - Clear seasonality -> bikes utilization shows a rapid utilization starting in the spring season and peaking in July. Both classic and electric bike utilization start to drop significantly in August and really bottoms out during the winter season. 
 - It is no surprise that people opt out for more comfortable transport means (bus, personal car, ...) when the weather is cold
