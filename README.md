@@ -181,7 +181,7 @@ ORDER BY member_casual ASC, num_trips DESC
 ![image](https://user-images.githubusercontent.com/24313609/184937553-dfabda82-ba0a-447d-aa21-7f09ceee6cb1.png)
 ![image](https://user-images.githubusercontent.com/24313609/184937562-e59184b0-6d12-466f-b022-917482d68b5a.png)
 
-***Finding: It looks like members have a slight preference for classic bikes over electric_bikes over the last 12 months (58% vs 42%). Assuming that a good part of members are commuting to work, they might not be aware of the benefits of using an electric bike (which are generally faster and less tiresome for the cyclist). However we do not know the number of electric and classic bikes in the network. Also it might be the case that electric bikes are more expensive to rent. In this case I would recommend emphasizing the benefits of using electric bikes against the cost in a marketing campaign.***
+***Finding: It looks like members have a slight preference for classic bikes over electric_bikes over the last 12 months (58% vs 42%). Assuming that a good part of members are commuting to work, they might not be aware of the benefits of using an electric bike (which are generally faster and less tiresome for the cyclist). However we do not know the number of electric and classic bikes in the network. Also it might be the case that electric bikes are more expensive to rent. In this case I would recommend emphasizing the benefits of using electric bikes against the cost in a marketing campaign. Nevertheless this is not in the scope of our project, but could be an opportunity for furture improvement and investigation.***
 I'm curious about the electric bike utilization monthly trend. Let's check it:
 
 ```
@@ -198,7 +198,7 @@ ORDER BY member_casual ASC, ride_month ASC, num_trips DESC
 
 - Clear seasonality -> bikes utilization shows a rapid utilization starting in the spring season and peaking in July. Both classic and electric bike utilization start to drop significantly in August and really bottoms out during the winter season. 
 - It is no surprise that people opt out for more comfortable transport means (bus, personal car, ...) when the weather is cold
-- ***Finding: Converting casual users to members would result in more income for the firm while the wear of the bikes stays relatively the same (no significant difference in seasonality identified between the two categories). This is in line with the financial department analysis.***
+- ***Finding: Converting casual users to members should result in more income for the firm while the wear of the bikes stays relatively the same (no significant difference in seasonality identified between the two categories). This is in line with the financial department analysis. To reach a clear conclusion in this regard I require data that shows the number of users and members (I cannot infer if people who purchased an annual membership use the service more often)***
 - Data shows that 'docked bikes' are only used by casual users. However, I am not sure what that means - do they represent classic or electric bikes? In a real world situation I would check that with my colleagues and/or my manager.
 
 
