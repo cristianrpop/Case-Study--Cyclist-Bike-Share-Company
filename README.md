@@ -101,11 +101,46 @@ From the above analysis points we can then derive further insights on why would 
 
 ## Process
 
+Tools selection:
+
+- **SQL Server** - exploring, cleaning and transforming data (the csv files are quite large and time-consuming to work with in a spreadsheet)
 
 
+1) Imported the .csv files into a SQL database using SQL Server (SSMS).
+2) Merged all monthly tables into one using UNION ALL SQL function.
 
+3) Data cleaning procedures
+- [x] Completeness check (import errors) - verify number of rows and columns with original .csv file
+- [x] Check for null values in ride_id and member_casual
+- [x] Check for duplicate values in ride_id (each ride/trip should have a unique observation)
 
+```
+SELECT COUNT(*) FROM [google_capstone].[dbo].[trip_data];
 
+exec sp_columns [trip_data];
+
+SELECT
+	ride_id,
+	member_casual,
+	started_at
+FROM [google_capstone].[dbo].[trip_data]
+WHERE member_casual IS NULL OR ride_id IS NULL;
+
+SELECT
+	ride_id,
+	COUNT(*) AS occurences
+FROM [google_capstone].[dbo].[trip_data]
+GROUP BY ride_id
+HAVING COUNT(*) > 1
+```
+
+Errors
+- There are observations with null values in the start_station_name, start_station_id, end_station_name and end_station_id columns
+
+3) Data transformation
+* Created two computed columns
+  - ride_length - showing the length in minutes for each ride ```DATEDIFF(minute, started_at, ended_at)```
+  - day_of_week - extracted the week day in number format (Sunday = 1, Saturday = 7) ```DATEPART(dw, started_at)```
 
 
  
