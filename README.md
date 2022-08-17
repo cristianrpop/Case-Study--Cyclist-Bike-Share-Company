@@ -325,7 +325,7 @@ ORDER BY COUNT(*) DESC
 * The average member trip length is about half of the casual user (12-14min vs. 20-26min excluding docked bikes)
 2) Why would casual riders buy Cyclistic annual memberships?
 * If they plan to commute to work using a bike.
-* If they would be aware of the amount of money they can save by buying an annual membership
+* If they are aware of the amount of money they can save by buying an annual membership
 * They enjoy cycling and would like to practice it more often.
 5) How can Cyclistic use digital media to influence casual riders to become members?
 * Target audience who is currently employed and not working remotely which have an interest in cycling.
